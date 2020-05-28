@@ -16,7 +16,8 @@
   <p> x-Beschleunigung: <span id="zaccel"></span></p>
 <p><b>Lage</b></p> 
 <p> x-Orientierung: <span id="xgyro"></span></p>
-  
+<p> y-Orientierung: <span id="ygyro"></span></p>
+<p> z-Orientierung: <span id="zgyro"></span></p>
   
 <script>
   
@@ -45,6 +46,8 @@ window.ondevicemotion = function(ereignis){
   
     var xgyro = Math.round(ereignis.accelerationIncludingGravity.x * 100) / 100;
     document.getElementById("xgyro").innerHTML = xgyro;
+   document.getElementById("xgyro").innerHTML = Math.round(ereignis.accelerationIncludingGravity.y * 100) / 100;;
+  document.getElementById("xgyro").innerHTML = Math.round(ereignis.accelerationIncludingGravity.z * 100) / 100;
 }
   
 
