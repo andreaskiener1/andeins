@@ -20,8 +20,8 @@
 <script>
   
 function ausrichtungAuslesen(ereignis) {
-    var winkelAlpha = Math.round(ereignis.alpha * 100) / 100; 
-    var winkelBeta = Math.round(ereignis.beta * 100) / 100;
+    var winkelAlpha = Math.round(ereignis.alpha ) ; 
+    var winkelBeta = Math.round(ereignis.beta);
     var winkelGamma = Math.round(ereignis.gamma ) ;
     document.getElementById('datenAlpha').innerHTML = winkelAlpha;
     document.getElementById('datenBeta').innerHTML = winkelBeta;
