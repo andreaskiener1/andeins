@@ -35,7 +35,7 @@ window.onload = function() {
   
 window.ondevicemotion = function(ereignis){
     console.log(ereignis);
-    var xaccel = ereignis.acceleration.x;
+    var xaccel = Math.round(ereignis.acceleration.x * 100) / 100;
     document.getElementById("xaccel").innerHTML = xaccel;
 }
   
