@@ -1,3 +1,5 @@
 <?php
-echo "<p>Hello World!</p>";
+
+require_once('sensoren.html'); 
+
 ?>
