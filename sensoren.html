@@ -36,13 +36,12 @@ window.ondevicemotion = function(ereignis){
     //console.log(ereignis);
     var xaccel = Math.round(ereignis.acceleration.x * 100) / 100;
     document.getElementById("xaccel").innerHTML = xaccel;
+  
+    var xgyro = Math.round(ereignis.accelerationIncludingGravity.x * 100) / 100;
+    document.getElementById("xgyro").innerHTML = xgyro;
 }
   
-window.addEventlistener("devicemotion", function(ereignis){
-    var xlage = Math.round(ereignis.accelerationIncludingGravity.x);
-    document.getElementById("xgyro").innerHTML = xlage;
-});  
-  
+
   
 </script>
 </body>
