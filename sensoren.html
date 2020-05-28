@@ -11,6 +11,11 @@
 <p>gamma: <span id="datenGamma"></span></p>
   <p><b>Beschleunigung</b></p> 
   <p> x-Beschleunigung: <span id="xaccel"></span></p>
+ 
+<p><b>Lage</b></p> 
+<p> x-Orientierung: <span id="xgyro"></span></p>
+  
+  
 <script>
 function ausrichtungAuslesen(ereignis) {
     var winkelAlpha = Math.round(ereignis.alpha * 100) / 100; 
@@ -21,20 +26,20 @@ function ausrichtungAuslesen(ereignis) {
     document.getElementById('datenGamma').innerHTML = winkelGamma;
  
 }
- /*
-function accelAuslesen(ereignis){
+
+function lageAuslesen(ereignis){
   console.log(ereignis);
-  var xaccel = ereignis.acceleration.x;
-  document.getElementById("xaccel").innterHTML = xaccel;
+  var xgyro = ereignis.accelerationIncludingGravity.x;
+  document.getElementById("xgyro").innterHTML = xgyro;
 }  
- */
+
 window.onload = function() {
   window.addEventListener("deviceorientation", ausrichtungAuslesen, false);
-  //window.addEventListener("devicemotion", accelAuslesen, false);
+  window.addEventListener("devicemotion", lageAuslesen, false);
 }
   
 window.ondevicemotion = function(ereignis){
-    console.log(ereignis);
+    //console.log(ereignis);
     var xaccel = Math.round(ereignis.acceleration.x * 100) / 100;
     document.getElementById("xaccel").innerHTML = xaccel;
 }
