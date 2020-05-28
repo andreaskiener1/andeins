@@ -35,6 +35,8 @@ window.onload = function() {
   window.addEventListener("deviceorientation", ausrichtungAuslesen, false);
 }
   
+
+  
 window.ondevicemotion = function(ereignis){
     //console.log(ereignis);
     var xaccel = Math.round(ereignis.acceleration.x * 100);
