@@ -21,22 +21,15 @@
 function ausrichtungAuslesen(ereignis) {
     var winkelAlpha = Math.round(ereignis.alpha * 100) / 100; 
     var winkelBeta = Math.round(ereignis.beta * 100) / 100;
-    var winkelGamma = Math.round(ereignis.gamma * 100) / 100;
+    var winkelGamma = Math.round(ereignis.gamma ) ;
     document.getElementById('datenAlpha').innerHTML = winkelAlpha;
     document.getElementById('datenBeta').innerHTML = winkelBeta;
     document.getElementById('datenGamma').innerHTML = winkelGamma;
  
 }
 
-function lageAuslesen(ereignis){
-  console.log(ereignis);
-  var xgyro = ereignis.accelerationIncludingGravity.x;
-  document.getElementById("xgyro").innterHTML = xgyro;
-}  
-
 window.onload = function() {
   window.addEventListener("deviceorientation", ausrichtungAuslesen, false);
-  window.addEventListener("devicemotion", lageAuslesen, false);
 }
   
 window.ondevicemotion = function(ereignis){
@@ -44,6 +37,11 @@ window.ondevicemotion = function(ereignis){
     var xaccel = Math.round(ereignis.acceleration.x * 100) / 100;
     document.getElementById("xaccel").innerHTML = xaccel;
 }
+  
+window.addEventlistener("devicemotion", function(ereignis){
+    var xlage = Math.round(ereignis.accelerationIncludingGravity.x);
+    document.getElementById("xgyro").innerHTML = xlage;
+});  
   
   
 </script>
