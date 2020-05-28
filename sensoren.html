@@ -9,7 +9,7 @@
 <p>alpha: <span id="datenAlpha"></span></p>
 <p>beta: <span id="datenBeta"></span></p>
 <p>gamma: <span id="datenGamma"></span></p>
-  <p>Beschleunigung</p> 
+  <p><b>Beschleunigung</b></p> 
   <p> x-Acceleration: <span id="xaccel"></span></p>
 <script>
 function ausrichtungAuslesen(ereignis) {
@@ -21,8 +21,15 @@ function ausrichtungAuslesen(ereignis) {
     document.getElementById('datenGamma').innerHTML = winkelGamma;
  
 }
+function accelAuslesen(ereignis){
+  console.log(ereignis);
+  var xaccel = ereignis.acceleration.x;
+  document.getElementById("xaccel").innterHTML = xaccel;
+}  
+  
 window.onload = function() {
   window.addEventListener("deviceorientation", ausrichtungAuslesen, false);
+  window.addEventListener("devicemotion", acccelAuslesen, false);
 }
 </script>
 </body>
