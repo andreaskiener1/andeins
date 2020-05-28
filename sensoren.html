@@ -1,0 +1,26 @@
+<html>
+<head>
+  <style>
+    body{font-size:2em;}
+  </style>
+<img id="kompass" src="https://www.javascript-kurs.de/bilder/kompass.png">
+<h1>Sensoren von mobilen Geräten auslesen</h1>
+<p>alpha: <span id="datenAlpha"></span></p>
+<p>beta: <span id="datenBeta"></span></p>
+<p>gamma: <span id="datenGamma"></span></p>
+<script>
+function ausrichtungAuslesen(ereignis) {
+    var winkelAlpha = Math.round(ereignis.alpha * 100) / 100; 
+    var winkelBeta = Math.round(ereignis.beta * 100) / 100;
+    var winkelGamma = Math.round(ereignis.gamma * 100) / 100;
+    document.getElementById('datenAlpha').innerHTML = winkelAlpha;
+    document.getElementById('datenBeta').innerHTML = winkelBeta;
+    document.getElementById('datenGamma').innerHTML = winkelGamma;
+    document.getElementById("kompass").style.webkitTransform = "rotate(" + winkelAlpha + "deg)";
+}
+window.onload = function() {
+  window.addEventListener("deviceorientation", ausrichtungAuslesen, false);
+}
+</script>
+</body>
+</html>
